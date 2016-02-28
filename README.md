@@ -11,7 +11,14 @@ Included:
 - jQuery
 - Font Awesome
 - HTML Ipsum
-- Gulp task and moreeeee just look at gulpfile.js
+- Gulp task including :
+    - BrowserSync (autoreload html,css,php)
+    - SASS compile (using node-sass)
+    - CSS Minify
+    - Autoprefixr
+    - Source maps (css)
+    - Image minify
+    - Icon font generator from svg placed in `icons` folder
 
 ## Note for Gulp Users
 Yeay!! Let the gulp do the magic for you!
