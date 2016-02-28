@@ -105,10 +105,12 @@ gulp.task('icon-font', function(){
       fontName: 'mamoo-icons',
       path: 'styles/components/_icons_template.scss',
       targetPath: '../styles/components/_icons.scss',
-      fontPath: '../../fonts/'
+      fontPath: '../fonts/'
     }))
     .pipe(iconfont({
       fontName: 'mamoo-icons',
+      prependUnicode: true, // recommended option 
+      formats: ['ttf', 'eot', 'woff', 'svg'], // default, 'woff2' and 'svg' are available 
       normalize:true
      }))
     .pipe(gulp.dest('fonts/'));
