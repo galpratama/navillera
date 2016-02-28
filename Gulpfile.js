@@ -10,6 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var notify = require("gulp-notify");
 var autoprefixer = require('gulp-autoprefixer');
 var php = require('gulp-connect-php');
+var imagemin = require('gulp-imagemin');
 
 gulp.task('sass', function() {
     gulp.src('styles/**/*.scss')        
@@ -84,7 +85,19 @@ gulp.task('browsersync-html', function () {
     });
 });
 
-gulp.task('default', ['sass','browsersync-php','minify-css'], function() {
+gulp.task('minify-image', function() {
+    return gulp.src('images/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [
+                {removeViewBox: false},
+                {cleanupIDs: false}
+            ]
+        }))
+        .pipe(gulp.dest('images'));
+});
+
+gulp.task('default', ['sass','browsersync-php','minify-css','minify-image'], function() {
     gulp.watch('styles/**/*.scss', ['sass']);
     gulp.watch('css/main.css', ['minify-css']);
     gulp.watch("**/*.html").on('change', browserSync.reload);
