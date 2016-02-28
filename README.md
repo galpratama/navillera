@@ -13,15 +13,9 @@ Included:
 - HTML Ipsum
 - Gulp task and moreeeee just look at gulpfile.js
 
-## Note for Koala Users
-For you that using koala, you must save main.css even if you dont make changes to that file, because koala doesn't support compiling deep partials (_likethis.scss). After you saving partials, make sure for save main.scss files too.
-
-## Note for Codekit Users
-Works as expected
-
 ## Note for Gulp Users
 Yeay!! Let the gulp do the magic for you!
-Don por get to install nodejs of course
+Don por get to install node-js first and `npm install` of course
 
 ## Ideal usage
 

@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var notify = require("gulp-notify");
 var autoprefixer = require('gulp-autoprefixer');
-var connect = require('gulp-connect-php');
+var php = require('gulp-connect-php');
 
 gulp.task('sass', function() {
     gulp.src('styles/**/*.scss')        
@@ -58,10 +58,10 @@ gulp.task('minify-css', function() {
     });
 
 gulp.task('php', function() {
-    connect.server({ base: 'build', port: 80, keepalive: true});
+    php.server({ base: 'build', port: 80, keepalive: true});
 });
 
-gulp.task('browsersync-php', function () {
+gulp.task('browsersync-php', ['php'], function () {
     browserSync({
         // Change your server port math to your server, usually its 80
         proxy: '127.0.0.1:80',
