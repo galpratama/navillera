@@ -11,6 +11,8 @@ var notify = require("gulp-notify");
 var autoprefixer = require('gulp-autoprefixer');
 var php = require('gulp-connect-php');
 var imagemin = require('gulp-imagemin');
+var iconfont = require('gulp-iconfont');
+var iconfontCss = require('gulp-iconfont-css');
 
 gulp.task('sass', function() {
     gulp.src('styles/**/*.scss')        
@@ -42,21 +44,21 @@ gulp.task('sass', function() {
 
 gulp.task('minify-css', function() {
   gulp.src('css/main.css')
-      /* Source map init */
-      .pipe(sourcemaps.init())
+    /* Source map init */
+    .pipe(sourcemaps.init())
 
-      /* Do the magic */
-      .pipe(cleanCSS())
+    /* Do the magic */
+    .pipe(cleanCSS())
 
-      /* Write source maps */
-      .pipe(sourcemaps.write('./'))
+    /* Write source maps */
+    .pipe(sourcemaps.write('./'))
 
-      /* Write minify */
-      .pipe(gulp.dest('css/min'))
+    /* Write minify */
+    .pipe(gulp.dest('css/min'))
 
-      /* Reload the browser CSS after every change */
-      .pipe(reload({stream:true}));
-    });
+    /* Reload the browser CSS after every change */
+    .pipe(reload({stream:true}));
+  });
 
 gulp.task('php', function() {
     php.server({ base: 'build', port: 80, keepalive: true});
@@ -97,7 +99,22 @@ gulp.task('minify-image', function() {
         .pipe(gulp.dest('images'));
 });
 
-gulp.task('default', ['sass','browsersync-php','minify-css','minify-image'], function() {
+gulp.task('icon-font', function(){
+  gulp.src(['icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: 'mamoo-icons',
+      path: 'styles/components/_icons_template.scss',
+      targetPath: '../styles/components/_icons.scss',
+      fontPath: '../../fonts/'
+    }))
+    .pipe(iconfont({
+      fontName: 'mamoo-icons',
+      normalize:true
+     }))
+    .pipe(gulp.dest('fonts/'));
+});
+
+gulp.task('default', ['icon-font','sass','browsersync-php','minify-css','minify-image'], function() {
     gulp.watch('styles/**/*.scss', ['sass']);
     gulp.watch('css/main.css', ['minify-css']);
     gulp.watch("**/*.html").on('change', browserSync.reload);
