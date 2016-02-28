@@ -44,6 +44,9 @@ gulp.task('sass', function() {
 
 gulp.task('minify-css', function() {
   gulp.src('css/main.css')
+
+    .pipe(rename("main.min.css"))
+
     /* Source map init */
     .pipe(sourcemaps.init())
 
@@ -54,7 +57,7 @@ gulp.task('minify-css', function() {
     .pipe(sourcemaps.write('./'))
 
     /* Write minify */
-    .pipe(gulp.dest('css/min'))
+    .pipe(gulp.dest('css'))
 
     /* Reload the browser CSS after every change */
     .pipe(reload({stream:true}));
