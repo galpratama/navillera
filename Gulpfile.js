@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var notify = require("gulp-notify");
 var autoprefixer = require('gulp-autoprefixer');
-
+var connect = require('gulp-connect-php');
 
 gulp.task('sass', function() {
     gulp.src('styles/**/*.scss')        
@@ -57,16 +57,36 @@ gulp.task('minify-css', function() {
       .pipe(reload({stream:true}));
     });
 
-gulp.task('browser', function () {
+gulp.task('php', function() {
+    connect.server({ base: 'build', port: 80, keepalive: true});
+});
+
+gulp.task('browsersync-php', function () {
     browserSync({
-            server: {
-            baseDir: './'
-        }
+        // Change your server port math to your server, usually its 80
+        proxy: '127.0.0.1:80',
+        port: 8080,
+        open: true,
+        notify: true,
+        // Change your path to your desired folder at htdocs/www (if you use xampp or ampps)
+        startPath: "/single-project/frontend-boilerplate/"
     });
 });
 
-gulp.task('default', ['sass','browser','minify-css'], function() {
+gulp.task('browsersync-html', function () {
+    browserSync({
+            server: {
+            baseDir: './'
+        },
+        port: 8081,
+        open: false,
+        notify: true
+    });
+});
+
+gulp.task('default', ['sass','browsersync-php','minify-css'], function() {
     gulp.watch('styles/**/*.scss', ['sass']);
     gulp.watch('css/main.css', ['minify-css']);
-    gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("**/*.html").on('change', browserSync.reload);
+    gulp.watch('**/*.php').on('change', browserSync.reload);
 });
