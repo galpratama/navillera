@@ -1,4 +1,4 @@
-# Mamooplate
+# Navillera Frontend Boilerplate
 
 Boilerplate that I used often for my future projects.
 
@@ -6,7 +6,7 @@ Included:
 - Project folder structure
 - Bourbon
 - sass-boilerplate
-- Mamoo (For now only bootstrap responsive mixins)
+- Bootstrap responsive mixins
 - Bootstrap
 - jQuery
 - Font Awesome
