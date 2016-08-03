@@ -85,7 +85,7 @@ gulp.task('browsersync-html', function () {
             baseDir: './'
         },
         port: 8081,
-        open: false,
+        open: true,
         notify: true
     });
 });
@@ -119,9 +119,9 @@ gulp.task('icon-font', function(){
     .pipe(gulp.dest('fonts/'));
 });
 
-gulp.task('default', ['icon-font','sass','browsersync-php','minify-css','minify-image'], function() {
+gulp.task('default', ['icon-font','sass','browsersync-html','minify-css','minify-image'], function() {
     gulp.watch('styles/**/*.scss', ['sass']);
     gulp.watch('css/main.css', ['minify-css']);
     gulp.watch("**/*.html").on('change', browserSync.reload);
-    gulp.watch('**/*.php').on('change', browserSync.reload);
+    // gulp.watch('**/*.php').on('change', browserSync.reload);
 });
