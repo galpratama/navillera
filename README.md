@@ -21,6 +21,8 @@ Simple and easy to use front-end boilerplate with hot reloading for kickstart yo
 ## How to use?
 1. Clone this repo
 2. Run `npm install` (you must have node.js and npm installed first).
+3. Run `gulp` to start.
+4. Done!
 
 ## Folder structure
 
