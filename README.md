@@ -1,30 +1,28 @@
-# Navillera Frontend Boilerplate
+# Navillera
 
-Boilerplate that I used often for my future projects.
+Simple and easy to use boilerplate with hot reloading for kickstart your project
 
-Included:
-- Project folder structure
-- Bourbon
-- sass-boilerplate
-- Bootstrap responsive mixins
+## What's included?
+- Clean and organized folder structure. (From sass-guidelin.es)
+- sass-boilerplate (by HugoGiraudel)
+- Bourbon Mixin
+- Bootstrap Responsive Mixins (respondto)
 - Bootstrap
 - jQuery
 - Font Awesome
-- HTML Ipsum
-- Gulp task including :
-    - BrowserSync (autoreload html,css,php)
-    - SASS compile (using node-sass)
-    - CSS Minify
-    - Autoprefixr
-    - Source maps (css)
-    - Image minify
-    - Icon font generator from svg placed in `icons` folder
+- BrowserSync (autoreload html,css,php)
+- SASS compile (using node-sass)
+- CSS Minify
+- Autoprefixr
+- Source maps (css)
+- Image minify
+- Icon font generator from svg placed in `icons` folder
 
-## Note for Gulp Users
-Yeay!! Let the gulp do the magic for you!
-Don por get to install node-js first and `npm install` of course
+## How to use?
+1. Clone this repo
+2. Run `npm install` (you must have node.js and npm installed first).
 
-## Ideal usage
+## Folder structure
 
 ```
 styles/
