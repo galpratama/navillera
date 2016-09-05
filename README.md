@@ -1,6 +1,6 @@
 # Navillera Frontend
 
-Simple and easy to use boilerplate with hot reloading for kickstart your project
+Simple and easy to use front-end boilerplate with hot reloading for kickstart your project
 
 ## What's included?
 - Clean and organized folder structure. (From sass-guidelin.es)
