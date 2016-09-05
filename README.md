@@ -1,4 +1,4 @@
-# Navillera
+# Navillera Frontend
 
 Simple and easy to use boilerplate with hot reloading for kickstart your project
 
