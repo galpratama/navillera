@@ -20,9 +20,10 @@ Simple and easy to use front-end boilerplate with hot reloading for kickstart yo
 
 ## How to use?
 1. Clone this repo
-2. Run `npm install` (you must have node.js and npm installed first).
-3. Run `gulp` to start.
-4. Done!
+2. Run `npm install -g gulp` to install gulp to your system. (you must have node.js and npm installed first). If it doesn't working, try adding `sudo` in front of the command.
+3. Run `npm install` 
+4. Run `gulp` to start.
+5. Done!
 
 ## Folder structure
 
